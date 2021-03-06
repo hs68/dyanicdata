@@ -17,7 +17,7 @@ const replace1=(tempdata,val)=>{
     let temperature=tempdata.replace("{%name%}",val.name);
     return temperature;
 }
-
+///
 app.get("", (req, res) => {
     res.render('index');
 })
@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
 });
 app.get('/about', (req, res) => {
     console.log(req.query.name);
+    //
     requests(`http://api.openweathermap.org/data/2.5/weather?q=${req.query.name}&appid=7eef9ff479be2b4760bebd6dfe95c0ce`).on("data",(chunk)=>{
         const obj=JSON.parse(chunk);
         const objdata=[obj];
